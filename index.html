@@ -9,38 +9,50 @@
 <body>
     <nav>
         <div class="logo">𝓜 <span>.</span></div>
-        <ul>
+        <ul class="nav-links">
             <li><a href="#about">A propos</a></li>
             <li><a href="#skills">Compétences</a></li>
             <li><a href="#projects">Projets</a></li>
             <li><a href="#contact">Contact</a></li>
         </ul>
+        <button class="hamburger" id="burger" aria-label="Menu">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
     </nav>
 
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="#about">A propos</a>
+        <a href="#skills">Compétences</a>
+        <a href="#projects">Projets</a>
+        <a href="#contact">Contact</a>
+    </div>
+
     <header id="about">
-    <div class="hero">
-        <div class="hero-text">
-            <h1>Mirado RAZAFIMANDIMBY</h1>
-            <p class="tagline">Étudiant L1 INSI | Passionné par la Cybersécurité</p>
-            <p class="bio">
-                Étudiant en informatique passionné par la cybersécurité et les systèmes réseaux. Actuellement en L1 à l’Institut Supérieur National Informatique, je développe aussi mes compétences en développement, avec un intérêt particulier pour le langage Java.
-            </p>
-            <div class="cv-link">
-                <a href="CV/CV.pdf" target="_blank" rel="noopener noreferrer">Voir mon CV</a>
+        <div class="hero">
+            <div class="hero-text">
+                <h1>Mirado RAZAFIMANDIMBY</h1>
+                <p class="tagline">Étudiant L1 INSI | Passionné par la Cybersécurité</p>
+                <p class="bio">
+                    Étudiant en informatique passionné par la cybersécurité et les systèmes réseaux. Actuellement en L1 à l'Institut Supérieur National Informatique, je développe aussi mes compétences en développement, avec un intérêt particulier pour le langage Java.
+                </p>
+                <div class="cv-link">
+                    <a href="CV/CV.pdf" target="_blank" rel="noopener noreferrer">Voir mon CV</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="Photo/Mirado_CV.png" alt="Photo de Mirado">
             </div>
         </div>
-        <div class="hero-image">
-            <img src="Photo/Mirado_CV.png" alt="Photo de Mirado">
-        </div>
-    </div>
-</header>
+    </header>
 
     <section class="experience">
         <h2 class="title">Expérience Professionelle</h2>
         <div class="exp-card">
             <h4>Agent de Saisie (Numérisation des Titres Fonciers)</h4>
             <span>MD2i | Oct 2024 - Mai 2025</span>
-            <p>Traitement et insertion des registres fonciers physiques dans la base de données nationale au sein des Domaines du guichet unique d’Antananarivo Ville.</p>
+            <p>Traitement et insertion des registres fonciers physiques dans la base de données nationale au sein des Domaines du guichet unique d'Antananarivo Ville.</p>
         </div>
     </section>
 
@@ -53,11 +65,12 @@
             </div>
             <div class="skill-box">
                 <h3>Systèmes & Sécurité</h3>
-                <p>Admin Linux (En cours), GitHub, Virtualisation</p>
+                <p>Linux, Base de la cybersécurité</p>
             </div>
+            
             <div class="skill-box">
-                <h3>Design UI/UX</h3>
-                <p>Figma, Photoshop, HTML5/CSS3</p>
+                <h3>Outil collaboratifs & Docker</h3>
+                <p>GitHub, Docker (Débutant)</p>
             </div>
         </div>
     </section>
@@ -65,10 +78,8 @@
     <section id="projects">
         <h2 class="title">Mes Réalisations</h2>
         <div class="project-columns">
-            
             <div class="column">
                 <h3 class="col-title">Projets Académiques (INSI)</h3>
-
                 <a href="https://github.com/Mirado14112003/Fanorona.git" class="card" target="_blank">
                     <h4>Fanorona 9</h4>
                     <p>Jeu traditionnel Malgache réalisé en Python (Projet de groupe).</p>
@@ -104,7 +115,6 @@
                     <span class="tech">HTML / CSS</span>
                 </a>
             </div>
-
         </div>
     </section>
 
@@ -122,5 +132,21 @@
         </div>
     </footer>
 
+    <script>
+        const burger = document.getElementById('burger');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        burger.addEventListener('click', () => {
+            burger.classList.toggle('open');
+            mobileMenu.classList.toggle('open');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                burger.classList.remove('open');
+                mobileMenu.classList.remove('open');
+            });
+        });
+    </script>
 </body>
 </html>
